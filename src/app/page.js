@@ -4,7 +4,7 @@ import Image from 'next/image'
 import {Button} from "@nextui-org/react";
 
 import { useSelector, useDispatch } from 'react-redux'
-import {login} from "@/app/redux/userStore";
+import {login} from "@/redux/userStore";
 import {useEffect} from "react";
 
 export default function Home() {
@@ -12,9 +12,8 @@ export default function Home() {
 
   const userInfo = useSelector((state) => state.user.value)
 
-  useEffect(() => {
 
-  }, []);(() => {
+  useEffect(() => {
     console.log('userInfo', userInfo)
   }, [userInfo]);
 
@@ -27,14 +26,16 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <Button onClick={onClickEvent} color="primary">
-          Button
-        </Button>
-      </div>
-      <div>
-        {userInfo && <div>{userInfo.name}</div>}
-      </div>
+      <main>
+        <div>
+          <Button onClick={onClickEvent} color="primary">
+            Button
+          </Button>
+        </div>
+        <div>
+          {userInfo && <div>{userInfo.name}</div>}
+        </div>
+      </main>
     </>
   )
 }
